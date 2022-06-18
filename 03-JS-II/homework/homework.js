@@ -18,7 +18,7 @@ function mayoriaDeEdad(edad) {
   //Determinar si la persona según su edad puede ingresar a un evento.
   //Si tiene 18 años ó más, devolver --> "Allowed"
   //Si es menor, devolver --> "Not allowed"
-  if (edad <= 18)
+  if (edad >= 18)
     return "Allowed";
   else 
     return "Not allowed";
@@ -170,9 +170,9 @@ function esPrimo(numero) {
   var comprobar = 0;
   for (var i = 1; i <= numero; i++) {
     if (numero % i === 0)
+      comprobar++;
     if (comprobar > 2)
-      return false;
-    comprobar++;   
+      return false;    
   }
   return true;
 }
