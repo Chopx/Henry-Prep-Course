@@ -225,6 +225,17 @@ function breakStatement(numero) {
   
   var arrayNuevo = new Array();
   var suma = numero;
+  var i = 0;
+  while (i < 10) {
+    arrayNuevo.push(suma += 2);
+    if(arrayNuevo[i] === i) {
+      return "Se interrumpió la ejecución";
+      break;
+    }  
+    i++;
+  }
+
+  /*
   for (let i = 0; i < 10; i++) {
     arrayNuevo.push(suma += 2);
     if(arrayNuevo[i] === i) {
@@ -232,6 +243,8 @@ function breakStatement(numero) {
       break;
     }
   }
+  */
+
   return arrayNuevo;
 
 }
@@ -247,14 +260,30 @@ function continueStatement(numero) {
 
   var arrayNuevo = new Array();
   var suma = numero;
+  var i = 0;
+
+  while (i < 10) {
+
+    if (i === 5){
+      i++;
+      continue;  
+    }
+    else
+      arrayNuevo.push(suma += 2); 
+
+    i++;
+  }
+
+  /*
   for (let i = 0; i < 10; i++) {
-    if (i != 5){
+     if (i != 5){
       arrayNuevo.push(suma += 2);
     }
     else
       continue;
   }
-  
+  */
+
   return arrayNuevo;
 
 }
