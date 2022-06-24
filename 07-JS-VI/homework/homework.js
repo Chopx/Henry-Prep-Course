@@ -25,21 +25,21 @@ function sumarArray(numeros, cb) {
   // Pasa el resultado a `cb`
   // No es necesario devolver nada
   //Tu código:
-  var suma = 0;
-  for (let i = 0; i < numeros.length; i++) {
-    suma += numeros[i];
-  }
+  var suma = numeros.reduce(function (acc, elemento) {
+    return acc + elemento;
+  });
   cb(suma);
+
 }
 
 function forEach(array, cb) {
   // Itera sobre la matriz "array" y pasa los valores al callback uno por uno
   // Pista: Estarás invocando a `cb` varias veces (una por cada valor en la matriz)
   //Tu código:
-  for (let i = 0; i < array.length; i++) {
-    cb(array[i]);
-  }
-
+  array.forEach(function (elemento, indice) {
+    cb(elemento);
+  })
+    
 }
 
 function map(array, cb) {
@@ -48,24 +48,22 @@ function map(array, cb) {
   // El nuevo array debe tener la misma longitud que el array del argumento
   //Tu código:
   const nuevoArray = new Array();
-  for (let i = 0; i < array.length; i++) {
-    nuevoArray.push(cb(array[i]));
-  }
-
+   array.map(function (elemento, indice) {
+    nuevoArray.push(cb(elemento));
+  })
   return nuevoArray;
+
 }
 
 function filter(array) {
   //Filtrar todos los elementos del array que comiencen con la letra "a".
   //Devolver un nuevo array con los elementos que cumplen la condición
   //Tu código:
-  const nuevoArray = new Array();
-  for (let i = 0; i < array.length; i++) {
-    if (array[i].charAt(0) === "a") {
-      nuevoArray.push(array[i]);
-    }
-  }
+  const nuevoArray = array.filter(function (palabra){
+    return palabra[0] === "a";
+  });
   return nuevoArray;
+  
 }
 
 // No modificar nada debajo de esta línea
